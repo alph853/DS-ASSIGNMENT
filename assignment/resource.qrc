@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>map.png</file>
+        <file>des.svg</file>
+        <file>picker.svg</file>
+        <file>start.svg</file>
+        <file>reset.svg</file>
+        <file>prev.svg</file>
+        <file>next.svg</file>
+        <file>switch.svg</file>
+        <file>graph.svg</file>
+        <file>mapToggle.svg</file>
+        <file>grid.jpg</file>
+    </qresource>
+    <qresource prefix="/file"/>
+</RCC>
