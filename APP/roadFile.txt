@@ -1,0 +1,87 @@
+Truong Chinh	,	4			1 2 23 64 51 6 68 7
+Phan Van Hon	,	1			2 3
+Quoc Lo 1 A	,	4	mw		1 3 65 4 45
+Le Trong Tan	,	2			4 63 48 5
+Tan Ky Tan Quy	,	1			45 46 47 5 6
+Hoang Van Thu	,	2			7 8
+Hoang Van Thu	,	3		-1	8 74 138 73
+Hoang Van Thu	,	3			73 32
+Ly Thuong Kiet	,	2			7 70 39 40 41
+Le Van Sy	,	3			9 31
+Tran Quoc Thao	,	2			135 10 11 12
+Vo Thi Sau	,	3		-1	54 92 36 30 11 44
+Dien Bien Phu	,	3		-1	12 13 37 93 56
+Nam Ky Khoi Nghia	,	3			72 53 30 13 
+Nam Ky Khoi Nghia	,	2		-1	13 14 15 16
+Nguyen Dinh Chieu	,	3		-1	21 14 50
+Nguyen Thi Minh Khai	,	3		-1	15 55 19 20
+Le Duan	,	2			16 17 59 18
+Hai Ba Trung	,	2			24 57 29 17 37 36 35 133
+Nguyen Binh Khiem	,	2		-1	22 21 19 18 28
+Ton Duc Thang	,	3		-1	24 25 26 27 58 59
+Nguyen Huu Canh	,	3			27 28
+Phan Dinh Phung	,	3		-1	34 33 32
+Phan Dang Luu	,	3			32 105 38 120 119 49 90
+3 thang 2	,	3			41 42 43 77 44
+Cach mang thang 8	,	2			7 61 44
+Cong Hoa	,	3		-1	51 139 137 8 51
+Dang Van Ngu	,	1			9 52
+Ly Chinh Thang	,	2		-1	10 53
+Hoang Sa	,	2			20 113 22 
+Tan Thang	,	1			48 62
+Le Van Duyet	,	3			49 78 91
+Nguyen Sieu	,	1		-1	57 26
+Ly Tu Trong	,	2		-1	29 58
+Truong Sa	,	1			52 31 34 109 110 111 112
+Tay Thanh	,	2			63 67 64
+Huynh Van Banh	,	1			33 71
+Tran Quang Khai	,	2			35 60
+M1	,	2			65 66
+CN1	,	2			66 140 67
+To Hien Thanh	,	2			40 61
+Au Co	,	1			68 75 69
+Lac Long Quan	,	1			125 69 70
+Huong Lo 3	,	2			47 62
+Cao Thang	,	2			50 77
+Dinh Tien Hoang	,	3			78 60 54
+Dinh Tien Hoang	,	3		-1	54 56 55 59
+Nguyen Van Troi	,	3			73 71 134
+Thoai Ngoc Hau	,	2			75 76
+Binh Long	,	2			47 76
+Xa lo Ha Noi	,	4	mw		1 79 80 126
+To Ky	,	3			80 81
+Quang Trung	,	3			81 82 83 84 85 86
+Nguyen Kiem	,	4		-1	86 87 104 103
+Pham Van Dong	,	4	mw		87 88 96 117 114 97
+Nguyen Binh Khiem	,	2			88 89
+Le Quang Dinh	,	2			95 96 89 90
+Cau Bong	,	3			60 91
+Phan Liem	,	1			92 93
+Nguyen Van Nghi	,	2			94 95
+Dinh Bo Linh	,	3	mw		98 115 99
+Hoang Minh Giam	,	3			87 101 102
+Bui Van Them	,	2			102 103
+Thich Quang Duc	,	2			38 104
+Phan Xich Long	,	3			105 106 107
+Cu Lao	,	1			107 108
+Hoa Phuong	,	1			108 109
+Thong Nhat	,	1			85 100 128
+Phan Van Tri	,	2			100 131 116 132 117 118
+No Gia Long	,	2			118 119
+Van Khiep	,	1			120 121
+Vu Huy Tan	,	1			78 121
+Hoa Binh	,	2			122 125
+Bach Dang	,	2			87 123
+Truong Son	,	4			123 124
+Tran Quoc Hoan	,	4		-1	124 136 8
+Le Duc Tho	,	3			126 127 128 129 130 131
+Le Van Tho	,	2		-1	84 127
+Nguyen Thai Son	,	2			87 94 132
+Cau Binh Trieu	,	3	mw	-1	97 98
+Cau Kieu	,	3		-1	133 34
+Cau Dien Bien Phu 2	,	4		-1	112 22
+Cau Cong Ly	,	3			134 72
+Cau Le Van Sy	,	3			31 135
+Cau vuot Cong Hoa	,	2		-1	137 138
+Cong Hoa	,	3		-1	136 51
+Dien Bien Phu	,	4			22 112 99
