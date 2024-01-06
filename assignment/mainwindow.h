@@ -80,6 +80,7 @@ private:
 
     QString currentMode = "";
     bool graphMode = 1;
+    bool mapOn = 1;
 };
 
 

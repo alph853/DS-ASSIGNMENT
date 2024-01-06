@@ -11,6 +11,8 @@
         <file>graph.svg</file>
         <file>mapToggle.svg</file>
         <file>grid.jpg</file>
+        <file>flow.svg</file>
+        <file>sp.svg</file>
     </qresource>
     <qresource prefix="/file"/>
 </RCC>

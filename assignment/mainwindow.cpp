@@ -81,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->mapToggle, &QPushButton::clicked, this, [=]() {
         item->setVisible(!item->isVisible());
-        itemGrid->setVisible(!itemGrid->isVisible());
+        itemGrid->setVisible(!itemGrid->isVisible());            
     });
 
     connect(ui->spbutton, &customButton::enterKeyPressed, this, &MainWindow::onEnterPressed);
@@ -108,16 +108,18 @@ MainWindow::MainWindow(QWidget *parent)
     ui->prevbutton->hide();
     ui->nextbutton->hide();
 
-    this->setStyleSheet("background-color: rgb(245,250,255);");
+    this->setStyleSheet("background-color: rgb(254,255,255);");
 
     QStringList nodes;
+    QStringList nodes2;
     for(const auto& x : Operate->get_nodeList())
     {
         QString name = "  " + QString::fromStdString(x.name);
         if (name.contains("Node"))
-            nodes.append(name);
+            nodes2 << name;
         else nodes << name;
     }
+    nodes << nodes2;
 
     QCompleter* completer = new QCompleter(nodes);
     completer->setCaseSensitivity(Qt::CaseInsensitive);
@@ -272,14 +274,12 @@ void MainWindow::drawPath(const std::vector<int> &p, double weight, const QStrin
     else outStr = QString::number(weight);
     outStr = "Path " + QString::number(index) + '\n' + currentMode + ": " + outStr;
 
-    QPainterPath inner;
     std::vector<QGraphicsPolygonItem*> arrows;
     arrows.reserve(p.size() - 1);
 
     for(size_t i = 1; i < p.size(); i++)
     {
         const QPointF& next = nodes[p[i]]->get_pos();
-
 
         double angle = atan2(next.y() - curr.y(), next.x() - curr.x());
         QPointF midpoint = (next + curr) / 2;
@@ -310,22 +310,14 @@ void MainWindow::drawPath(const std::vector<int> &p, double weight, const QStrin
         roadPath.moveTo(curr);
         roadPath.lineTo(next);
         customPath* roadP = new customPath(roadPath, str1,"R. " + QString::fromStdString(roadName[currNode][p[i]]));
-        roadP->setPen(QPen(color[index - 1], 4));
+        roadP->setPen(QPen(color[index], 4));
         roadP->setToolTip(outStr);
-
-        inner.moveTo(curr);
-        inner.lineTo(next);
 
         scene->addItem(roadP);
 
         curr = next;
         currNode = p[i];
     }
-
-
-    QGraphicsPathItem* innerPath = new QGraphicsPathItem(inner);
-    innerPath->setPen(QPen(color[index], 3));
-    scene->addItem(innerPath);
 
     for(const auto& arrowItem : arrows)
         scene->addItem(arrowItem);
@@ -345,8 +337,15 @@ void MainWindow::drawPath(const matrix<int> &paths, const std::vector<double>& w
     QPolygonF arrow;
     arrow << QPointF(0, 0) << QPointF(-10, -5) << QPointF(-10, 5);
     std::vector<QGraphicsPolygonItem*> arrows;
+    size_t n = Operate->get_numberOfVertices();
+    matrix<bool> checkRoad(n, std::vector<bool>(n));
+
 
     const auto& roadName = Operate->get_road();
+    const auto& nodeDistance = Operate->get_matrix();
+    const auto& nodeList = Operate->get_nodeList();
+    std::vector<QGraphicsPathItem*> tempP;
+
 
     for(size_t i = 0; i < paths.size(); i++)
     {
@@ -354,12 +353,13 @@ void MainWindow::drawPath(const matrix<int> &paths, const std::vector<double>& w
         QPainterPath outline;
         const auto& p = paths[i];
         QPointF curr = nodes[p[0]]->get_pos();
-        path.moveTo(curr);
+        int currNode = p[0];
+        // path.moveTo(curr);
         outline.moveTo(curr);
 
-        for(size_t i = 1; i < p.size(); i++)
+        for(size_t j = 1; j < p.size(); j++)
         {
-            QPointF next = nodes[p[i]]->get_pos();
+            QPointF next = nodes[p[j]]->get_pos();
 
             path.lineTo(next);
             outline.lineTo(next);
@@ -375,10 +375,36 @@ void MainWindow::drawPath(const matrix<int> &paths, const std::vector<double>& w
             arrowItem->setTransform(transform);
             arrowItem->setPen(QPen(Qt::transparent));
             arrows.push_back(arrowItem);
+
+            if (!checkRoad[currNode][p[j]])
+            {
+                checkRoad[currNode][p[j]] = 1;
+                QString str1;
+                if (currentMode == "Distance")
+                {
+                    const double& x = nodeDistance[currNode][p[j]];
+                    if (x < 1)
+                        str1 = "Distance: " + QString::number(x * 1000, 'd', 0) + 'm';
+                    else
+                        str1 = "Distance: " + QString::number(x, 'f', 2) + "km";
+                }
+                else str1 = "Capacity: " + QString::number(weight[i]);
+                str1 += '\n' + QString::fromStdString(nodeList[currNode].name) +
+                        " -> " + QString::fromStdString(nodeList[p[j]].name);
+
+                QPainterPath popupP;
+                popupP.moveTo(curr);
+                popupP.lineTo(next);
+                customPath* popupPath = new customPath(popupP, str1, "R. " + QString::fromStdString(roadName[currNode][p[j]]));
+                popupPath->setPen(QPen(Qt::transparent, 6));
+                tempP.push_back(popupPath);
+            }
+
+            currNode = p[j];
             curr = next;
         }
 
-        QGraphicsPathItem* innerPath = new QGraphicsPathItem(path);
+        // QGraphicsPathItem* innerPath = new QGraphicsPathItem(path);
         QGraphicsPathItem* outerPath = new QGraphicsPathItem(outline);
 
         QString outStr;
@@ -394,13 +420,11 @@ void MainWindow::drawPath(const matrix<int> &paths, const std::vector<double>& w
         outerPath->setToolTip("Path " + QString::number(i + 1) + "\n" + mode + ": " + outStr);
         outerPath->setPen(QPen(color[colIndex], 4));
         colIndex = (colIndex + 1) % color.size();
-
-        innerPath->setPen(QPen(color[colIndex], 3));
-        colIndex = (colIndex + 1) % color.size();
-
         scene->addItem(outerPath);
-        scene->addItem(innerPath);
     }
+
+    for(const auto& temp : tempP)
+        scene->addItem(temp);
     for(const auto& arrowItem : arrows)
         scene->addItem(arrowItem);
 }
@@ -865,6 +889,7 @@ void MainWindow::on_graph_clicked()
     if (graphMode)
     {
         drawMatrix(Operate->get_matrix());
+
         graphMode = 0;
     }
     else

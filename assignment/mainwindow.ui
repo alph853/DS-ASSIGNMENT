@@ -101,15 +101,16 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>210</y>
-      <width>181</width>
-      <height>51</height>
+      <y>220</y>
+      <width>191</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Sitka Text</family>
       <pointsize>12</pointsize>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="toolTip">
@@ -117,13 +118,12 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-    background-color: rgba(0, 0, 0, 0.1);
 	border: none;
     padding: 5px 10px;
 }
 
 QPushButton:hover {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 QPushButton:pressed {
@@ -154,14 +154,17 @@ QPushButton:pressed {
       <verstretch>2</verstretch>
      </sizepolicy>
     </property>
+    <property name="toolTipDuration">
+     <number>1</number>
+    </property>
    </widget>
    <widget class="customButton" name="flowbutton">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>210</y>
-      <width>151</width>
-      <height>51</height>
+      <x>210</x>
+      <y>220</y>
+      <width>171</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -175,13 +178,12 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-    background-color: rgba(0, 0, 0, 0.1);
 	border: none;
     padding: 5px 10px;
 }
 
 QPushButton:hover {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 QPushButton:pressed {
@@ -605,13 +607,13 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
 	border: none;
     padding: 5px 10px;
 }
 
 QPushButton:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.04);
 }
 
 QPushButton:pressed {
@@ -648,13 +650,13 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
 	border: none;
     padding: 5px 10px;
 }
 
 QPushButton:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.04);
 }
 
 QPushButton:pressed {
@@ -672,8 +674,8 @@ QPushButton:pressed {
     </property>
     <property name="iconSize">
      <size>
-      <width>40</width>
-      <height>40</height>
+      <width>35</width>
+      <height>35</height>
      </size>
     </property>
    </widget>
